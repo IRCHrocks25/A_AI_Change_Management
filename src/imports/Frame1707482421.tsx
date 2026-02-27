@@ -1,5 +1,6 @@
 import imgBackground from "../assets/dfe395181a102ff44587039a4243ebffd502e2e3.png";
 import imgPhoto from "../assets/bb8157914accc822330f72551364cb7ff8474af8.png";
+import { useRegistrationFormContext } from "../context/RegistrationFormContext";
 
 const gradientText =
   "linear-gradient(154.786deg, rgb(170, 69, 232) 26.236%, rgb(36, 69, 255) 86.882%), linear-gradient(90deg, rgb(13, 19, 83) 0%, rgb(13, 19, 83) 100%)";
@@ -8,6 +9,8 @@ const gradientBtn =
   "linear-gradient(155.701deg, rgb(170, 69, 232) 26.236%, rgb(36, 69, 255) 86.882%), linear-gradient(90deg, rgb(255, 0, 246) 0%, rgb(255, 0, 246) 100%)";
 
 export default function Frame1707482421() {
+  const { openForm } = useRegistrationFormContext();
+  
   return (
     <div className="relative w-full overflow-hidden flex flex-col" data-name="Frame1707482421">
       {/* Background */}
@@ -39,6 +42,7 @@ export default function Frame1707482421() {
           </p>
 
           <button
+            onClick={openForm}
             className="flex items-center justify-center w-full sm:w-auto px-[28px] md:px-[43px] py-[11px] rounded-[27.612px] cursor-pointer border-0"
             style={{ backgroundImage: gradientBtn }}
           >

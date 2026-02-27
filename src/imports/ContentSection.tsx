@@ -1,5 +1,6 @@
 import imgKane from "../assets/c30511ef0c221800b1cbb3424dddbadd7bee2ab4.png";
 import imgJeff from "../assets/71389237e1e07cd893b8939905c28896608797aa.png";
+import { useRegistrationFormContext } from "../context/RegistrationFormContext";
 
 function LeadershipTitle() {
   return (
@@ -124,8 +125,11 @@ function ClosingText() {
 }
 
 function RegisterButton() {
+  const { openForm } = useRegistrationFormContext();
+  
   return (
     <div
+      onClick={openForm}
       className="flex h-[53.154px] items-center justify-center px-4 py-[11.045px] rounded-[27.612px] w-full max-w-[472.172px] cursor-pointer"
       data-name="ButtonContainer"
       style={{
