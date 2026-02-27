@@ -1,6 +1,5 @@
 import imgKaneAndAlessia from "../assets/dfe395181a102ff44587039a4243ebffd502e2e3.png";
 import imgKaneAlessia from "../assets/a7eff2d64e72477d4bd64ebb652bfdf676ddfe00.png";
-import { useRegistrationFormContext } from "../context/RegistrationFormContext";
 
 const gradientText =
   "linear-gradient(154.786deg, rgb(170, 69, 232) 26.236%, rgb(36, 69, 255) 86.882%), linear-gradient(90deg, rgb(13, 19, 83) 0%, rgb(13, 19, 83) 100%)";
@@ -26,7 +25,9 @@ const stats = [
 ];
 
 function TextBlock() {
-  const { openForm } = useRegistrationFormContext();
+  const handleVisit = () => {
+    window.open('https://kaneandalessia.com', '_blank', 'noopener,noreferrer');
+  };
   
   return (
     <div className="flex flex-col gap-[20px] md:gap-[27px] items-center md:items-start w-full md:w-[412px]">
@@ -50,8 +51,8 @@ function TextBlock() {
 
       {/* CTA button */}
       <button
-        onClick={openForm}
-        className="flex items-center justify-center w-full sm:w-auto px-[28px] md:px-[43px] py-[11px] rounded-[27.612px] cursor-pointer border-0"
+        onClick={handleVisit}
+        className="flex items-center justify-center w-full sm:w-auto px-[28px] md:px-[43px] py-[11px] rounded-[27.612px] cursor-pointer border-0 hover:opacity-90 transition-opacity"
         style={{ backgroundImage: gradientBtn }}
       >
         <span className="font-['Plus_Jakarta_Sans:Bold',sans-serif] font-bold text-[13px] sm:text-[15px] md:text-[16.567px] leading-[20.709px] text-white uppercase">
