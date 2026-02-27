@@ -1,7 +1,6 @@
 import svgPaths from "./svg-x0sxij5v6";
 import Hero from "./Hero";
 import { useRegistrationFormContext } from "../context/RegistrationFormContext";
-import { useState } from "react";
 import imgRecognitionItem11 from "../assets/7ec0de8a8abdc498a15aadceb83ba4791beff1b3.png";
 import imgRecognitionItem21 from "../assets/3ff4e580ddef3f92a5044bdd3bd162ff9f3ad2c5.png";
 import imgRecognitionItem31 from "../assets/e47fbbaa0b5f9e3f81a1e223712e2cef7b46b31c.png";
@@ -2294,24 +2293,10 @@ function Image2() {
 }
 
 export default function LandingPage() {
-  const [shouldAutoplay, setShouldAutoplay] = useState(false);
-
-  const handleWatchVideo = () => {
-    // Scroll to hero section
-    const heroSection = document.getElementById('hero-video-section');
-    if (heroSection) {
-      heroSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      // Trigger autoplay after a short delay to ensure scroll completes
-      setTimeout(() => {
-        setShouldAutoplay(true);
-      }, 500);
-    }
-  };
-
   return (
     <div className="content-stretch flex flex-col items-center relative size-full" data-name="LANDING PAGE">
-      <NavBar onVideoClick={handleWatchVideo} />
-      <Hero shouldAutoplay={shouldAutoplay} />
+      <NavBar />
+      <Hero />
       <FeaturedOn />
       <Frame1707482421 />
       <RecognitionSection />

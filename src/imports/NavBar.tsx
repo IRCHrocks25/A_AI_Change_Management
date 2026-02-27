@@ -1,6 +1,5 @@
 import svgPaths from "./svg-8ht6v7hrau";
-import { useRegistrationFormContext } from "../context/RegistrationFormContext";
-import { useState } from "react";
+import { useVideoModalContext } from "../context/RegistrationFormContext";
 
 function NavItem() {
   return (
@@ -68,10 +67,12 @@ function NavItem() {
   );
 }
 
-function ButtonContainer({ onVideoClick }: { onVideoClick: () => void }) {
+function ButtonContainer() {
+  const { openVideo } = useVideoModalContext();
+  
   return (
     <div
-      onClick={onVideoClick}
+      onClick={openVideo}
       className="flex items-center justify-center px-4 sm:px-[11.195px] py-[8px] sm:py-[8.956px] rounded-[22.389px] shrink-0 h-[36px] sm:h-[40px] md:h-[43.1px] w-auto sm:w-[150px] md:w-[181px] cursor-pointer hover:opacity-90 transition-opacity"
       data-name="Button Container"
       style={{ backgroundImage: "linear-gradient(146.25deg, rgb(170, 69, 232) 26.236%, rgb(36, 69, 255) 86.882%), linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%)" }}
@@ -83,12 +84,12 @@ function ButtonContainer({ onVideoClick }: { onVideoClick: () => void }) {
   );
 }
 
-export default function NavBar({ onVideoClick }: { onVideoClick: () => void }) {
+export default function NavBar() {
   return (
     <nav className="sticky top-0 z-50 w-full bg-white border-b border-gray-100 shadow-sm" data-name="NAV BAR">
       <div className="w-full flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-[60px] h-[56px] sm:h-[64px] md:h-[72px]">
         <NavItem />
-        <ButtonContainer onVideoClick={onVideoClick} />
+        <ButtonContainer />
       </div>
     </nav>
   );

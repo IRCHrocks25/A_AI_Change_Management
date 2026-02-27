@@ -1,19 +1,8 @@
 import imgHero from "../assets/91adc766b1205f595aa50f4db3f2b02a40094294.png";
-import { useRegistrationFormContext } from "../context/RegistrationFormContext";
-import { useRef, useEffect } from "react";
+import { useRegistrationFormContext, useVideoModalContext } from "../context/RegistrationFormContext";
 
-function NavBar({ onVideoClick }: { onVideoClick?: () => void }) {
-  const handleVideoClick = () => {
-    if (onVideoClick) {
-      onVideoClick();
-    } else {
-      // Fallback: scroll to hero section
-      const heroSection = document.getElementById('hero-video-section');
-      if (heroSection) {
-        heroSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
-    }
-  };
+function NavBar() {
+  const { openVideo } = useVideoModalContext();
   
   return (
     <div className="content-stretch flex items-center justify-between relative shrink-0 w-full" data-name="NAV BAR">
@@ -40,7 +29,7 @@ function NavBar({ onVideoClick }: { onVideoClick?: () => void }) {
       </div>
       {/* CTA nav button */}
       <div 
-        onClick={handleVideoClick}
+        onClick={openVideo}
         className="bg-[#0d1353] flex items-center justify-center px-4 md:px-6 py-2 rounded-full shrink-0 cursor-pointer hover:opacity-90 transition-opacity"
       >
         <p className="font-['Plus_Jakarta_Sans:Bold',sans-serif] font-bold text-white text-xs md:text-sm uppercase tracking-wide">Watch the video</p>
@@ -111,24 +100,13 @@ function TextContainer() {
   );
 }
 
-function VideoPlaceholder({ shouldAutoplay }: { shouldAutoplay: boolean }) {
-  const videoRef = useRef<HTMLIFrameElement>(null);
-  
-  useEffect(() => {
-    if (shouldAutoplay && videoRef.current) {
-      // Update iframe src to include autoplay parameter
-      const baseUrl = "https://drive.google.com/file/d/1wBzB2g5TP3kXI11Kw7SMCl9Mhyo4bIrL/preview";
-      videoRef.current.src = `${baseUrl}?autoplay=1`;
-    }
-  }, [shouldAutoplay]);
-  
+function VideoPlaceholder() {
   return (
     <div
       className="w-full md:flex-[1_0_0] h-[220px] sm:h-[280px] md:h-[323.848px] relative rounded-[8.788px] overflow-hidden shrink-0"
       data-name="Image"
     >
       <iframe
-        ref={videoRef}
         src="https://drive.google.com/file/d/1wBzB2g5TP3kXI11Kw7SMCl9Mhyo4bIrL/preview"
         className="absolute inset-0 w-full h-full rounded-[8.788px]"
         allow="autoplay; fullscreen"
@@ -139,40 +117,40 @@ function VideoPlaceholder({ shouldAutoplay }: { shouldAutoplay: boolean }) {
   );
 }
 
-function ContentContainer({ shouldAutoplay }: { shouldAutoplay: boolean }) {
+function ContentContainer() {
   return (
     <div
       className="flex flex-col md:flex-row gap-6 md:gap-[36.586px] items-center justify-center w-full"
       data-name="Content Container"
     >
-      <VideoPlaceholder shouldAutoplay={shouldAutoplay} />
+      <VideoPlaceholder />
       <TextContainer />
     </div>
   );
 }
 
-function ContentSection({ shouldAutoplay }: { shouldAutoplay: boolean }) {
+function ContentSection() {
   return (
     <div
       className="flex flex-col gap-8 md:gap-[46px] items-center w-full"
       data-name="Content Section"
     >
       <HeadlineContainer />
-      <ContentContainer shouldAutoplay={shouldAutoplay} />
+      <ContentContainer />
     </div>
   );
 }
 
-export default function Hero({ shouldAutoplay = false }: { shouldAutoplay?: boolean }) {
+export default function Hero() {
   return (
-    <div id="hero-video-section" className="relative w-full min-h-[480px] md:min-h-[580px]" data-name="hero">
+    <div className="relative w-full min-h-[480px] md:min-h-[580px]" data-name="hero">
       <img
         alt=""
         className="absolute inset-0 w-full h-full object-cover pointer-events-none"
         src={imgHero}
       />
       <div className="relative flex flex-col items-center justify-center w-full h-full pt-12 pb-12 md:pt-20 md:pb-20 px-4 sm:px-8 md:px-16 lg:px-[200px] gap-6 md:gap-10">
-        <ContentSection shouldAutoplay={shouldAutoplay} />
+        <ContentSection />
       </div>
     </div>
   );
