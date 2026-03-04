@@ -88,5 +88,3 @@ export function RegistrationFormModal({ isOpen, onClose }: RegistrationFormModal
     </div>
   );
 }
-
-

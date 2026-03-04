@@ -29,7 +29,8 @@ import TrustpilotSection from "./TrustpilotSection";
 import Frame1707482421 from "./Frame1707482421";
 import StatsStrip from "./StatsContainer";
 import ContentSection from "./ContentSection";
-import NavBar from "./NavBar";
+import AuthorName from "./AuthorName";
+import AuthorNameBranson from "./AuthorName-2009-196";
 
 function HeadlineContainer1() {
   return (
@@ -74,7 +75,7 @@ function RecognitionSection() {
   return (
     <div className="bg-white relative shrink-0 w-full" data-name="Recognition Section">
       <div className="flex flex-col items-center size-full">
-        <div className="content-stretch flex flex-col gap-[35.206px] items-center px-4 sm:px-8 md:px-12 lg:px-[120px] xl:px-[200px] py-[39.348px] relative w-full">
+        <div className="max-w-[1728px] mx-auto content-stretch flex flex-col gap-[35.206px] items-center px-4 sm:px-8 md:px-12 lg:px-[120px] xl:px-[200px] py-[39.348px] relative w-full">
           <HeadlineContainer1 />
           <RecognitionItems />
         </div>
@@ -86,11 +87,6 @@ function RecognitionSection() {
 function Frame1() {
   return (
     <div className="content-stretch flex flex-col gap-[14px] items-start relative shrink-0 w-full">
-      <p className="font-['Plus_Jakarta_Sans:Bold',sans-serif] font-bold leading-[1.15] relative shrink-0 tracking-[-1px] md:tracking-[-1.5463px] w-full">
-        <span className="leading-[1.15] text-[24px] sm:text-[30px] md:text-[38.657px]">The</span>
-        <span className="font-['Playfair_Display:Bold_Italic',sans-serif] italic leading-[1.15] text-[25px] sm:text-[32px] md:text-[38.657px]">{` $50 Billion Problem `}</span>
-        <span className="leading-[1.15] text-[24px] sm:text-[30px] md:text-[38.657px]">{`Nobody's Talking About`}</span>
-      </p>
       <p className="font-['Plus_Jakarta_Sans:Bold',sans-serif] font-bold leading-[1.4] relative shrink-0 text-[15px] md:text-[17.948px] tracking-[-0.1795px] w-full">Right now, Fortune 500 companies and mid-market enterprises are hemorrhaging money on AI initiatives that look brilliant on paper but die silent deaths in execution.</p>
       <div className="font-['Plus_Jakarta_Sans:Regular',sans-serif] font-normal leading-[1.6] relative shrink-0 text-[14px] md:text-[16.567px] tracking-[-0.1657px] w-full">
         <p className="mb-2">The technology works. The strategy is sound. The ROI projections are real.</p>
@@ -179,9 +175,18 @@ function TextContainer1() {
 
 function Frame3() {
   return (
-    <div className="bg-white flex flex-col md:flex-row gap-8 md:gap-[69px] items-start md:items-end px-4 sm:px-8 md:px-16 lg:px-[270px] py-10 md:py-[68px] relative shrink-0 w-full">
-      <Frame2 />
-      <TextContainer1 />
+    <div className="bg-white relative shrink-0 w-full">
+    <div className="max-w-[1728px] mx-auto flex flex-col gap-8 md:gap-[48px] items-center px-4 sm:px-8 md:px-16 lg:px-[270px] py-10 md:py-[68px] relative w-full">
+      <p className="font-['Plus_Jakarta_Sans:Bold',sans-serif] font-bold leading-[1.15] relative shrink-0 tracking-[-1px] md:tracking-[-1.5463px] w-full text-center text-[#0d1353]">
+        <span className="leading-[1.15] text-[24px] sm:text-[30px] md:text-[38.657px]">The</span>
+        <span className="font-['Playfair_Display:Bold_Italic',sans-serif] italic leading-[1.15] text-[25px] sm:text-[32px] md:text-[38.657px]">{` $50 Billion Problem `}</span>
+        <span className="leading-[1.15] text-[24px] sm:text-[30px] md:text-[38.657px]">{`Nobody's Talking About`}</span>
+      </p>
+      <div className="flex flex-col md:flex-row gap-8 md:gap-[69px] items-start md:items-end w-full">
+        <Frame2 />
+        <TextContainer1 />
+      </div>
+    </div>
     </div>
   );
 }
@@ -189,14 +194,9 @@ function Frame3() {
 function AuthorInfo() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Author Info">
-      <p className="bg-clip-text font-['Manrope:Bold',sans-serif] font-bold leading-[0] relative shrink-0 text-[0px] text-[14.97px] text-white w-full" style={{ backgroundImage: "linear-gradient(90deg, rgb(60, 128, 255) 0%, rgb(117, 34, 189) 100%), linear-gradient(-4.53062deg, rgb(249, 5, 242) 16.982%, rgb(0, 0, 0) 86.805%), linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%)", WebkitTextFillColor: "transparent" }}>
-        <span className="bg-clip-text font-['Plus_Jakarta_Sans:Bold',sans-serif] leading-[20.316px]" style={{ backgroundImage: "linear-gradient(90deg, rgb(60, 128, 255) 0%, rgb(117, 34, 189) 100%), linear-gradient(-4.53062deg, rgb(249, 5, 242) 16.982%, rgb(0, 0, 0) 86.805%), linear-gradient(90deg, rgb(13, 19, 83) 0%, rgb(13, 19, 83) 100%)", WebkitTextFillColor: "transparent" }}>
-          ROBERT
-        </span>
-        <span className="bg-clip-text font-['Plus_Jakarta_Sans:Light',sans-serif] font-light leading-[20.316px]" style={{ backgroundImage: "linear-gradient(90deg, rgb(60, 128, 255) 0%, rgb(117, 34, 189) 100%), linear-gradient(-4.53062deg, rgb(249, 5, 242) 16.982%, rgb(0, 0, 0) 86.805%), linear-gradient(90deg, rgb(13, 19, 83) 0%, rgb(13, 19, 83) 100%)", WebkitTextFillColor: "transparent" }}>
-          KIYOSAKI
-        </span>
-      </p>
+      <div className="w-[126.045px] h-[11.5117px] relative shrink-0">
+        <AuthorName />
+      </div>
       <p className="font-['Plus_Jakarta_Sans:Regular',sans-serif] font-normal leading-[16.039px] relative shrink-0 text-[10.693px] w-full">{`American businessman and author, known for the Rich Dad Poor Dad series `}</p>
     </div>
   );
@@ -223,7 +223,7 @@ function ContentSection1() {
   return (
     <div className="bg-[#f5f4fc] relative shrink-0 w-full" data-name="Content Section">
       <div className="flex flex-row items-center justify-center size-full">
-        <div className="content-center flex flex-wrap gap-[11.735px] items-center justify-center px-4 sm:px-8 md:px-16 lg:px-[180px] py-[17.258px] relative w-full">
+        <div className="max-w-[1728px] mx-auto content-center flex flex-wrap gap-[11.735px] items-center justify-center px-4 sm:px-8 md:px-16 lg:px-[180px] py-[17.258px] relative w-full">
           <TestimonialContainer />
           <div className="h-[274.398px] relative shrink-0 w-[239.538px]" data-name="Group 1171275805 1">
             <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgGroup11712758051} />
@@ -402,7 +402,7 @@ function ButtonContainer2() {
     >
       <div className="flex flex-row items-center justify-center size-full">
         <div className="content-stretch flex items-center justify-center px-[13.806px] py-[11.045px] relative size-full">
-          <p className="font-['Plus_Jakarta_Sans:Bold',sans-serif] font-bold leading-[20.709px] relative shrink-0 text-[16.567px] text-center text-white uppercase">REGISTER FOR THE NEXT AVAILABLE SESSION</p>
+          <p className="font-['Plus_Jakarta_Sans:Bold',sans-serif] font-bold leading-[20.709px] relative shrink-0 text-[16.567px] text-center text-white uppercase">RESERVE MY FREE WORKSHOP SEAT</p>
         </div>
       </div>
     </div>
@@ -431,7 +431,7 @@ function ContentSection2() {
   return (
     <div className="bg-white relative shrink-0 w-full" data-name="Content Section">
       <div className="flex flex-col items-center justify-center w-full">
-        <div className="content-stretch flex flex-col gap-[37.967px] items-center justify-center px-4 sm:px-8 md:px-16 lg:px-[235px] py-[37.967px] relative w-full">
+        <div className="max-w-[1728px] mx-auto content-stretch flex flex-col gap-[37.967px] items-center justify-center px-4 sm:px-8 md:px-16 lg:px-[235px] py-[80px] md:py-[120px] relative w-full">
           <div className="font-['Plus_Jakarta_Sans:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#0d1353] text-[38.657px] text-center tracking-[-1.5463px] w-full whitespace-pre-wrap">
             <p className="mb-0">{`Why Technical Consultants Can't Solve This `}</p>
             <p className="font-['Playfair_Display:SemiBold_Italic',sans-serif] font-semibold italic">(But You Can)</p>
@@ -634,10 +634,11 @@ function ButtonContainer3() {
   return (
     <div 
       onClick={openForm}
-      className="bg-white content-stretch flex h-[53.154px] items-center justify-center px-[13.806px] py-[11.045px] relative rounded-[27.612px] shrink-0 w-full max-w-[441.799px] cursor-pointer hover:opacity-90 transition-opacity" 
-      data-name="Button Container"
+      className="content-stretch flex h-[53.154px] items-center justify-center px-[13.806px] py-[11.045px] relative rounded-[27.612px] shrink-0 w-full max-w-[441.799px] cursor-pointer hover:opacity-90 transition-opacity" 
+      data-name="Button Container" 
+      style={{ backgroundImage: "linear-gradient(162.437deg, rgb(170, 69, 232) 26.236%, rgb(36, 69, 255) 86.882%), linear-gradient(90deg, rgb(255, 0, 246) 0%, rgb(255, 0, 246) 100%)" }}
     >
-      <p className="font-['Plus_Jakarta_Sans:Bold',sans-serif] font-bold leading-[20.709px] relative shrink-0 text-[#0d1353] text-[16.567px] text-center uppercase">REGISTER FOR THE NEXT AVAILABLE SESSION</p>
+      <p className="font-['Plus_Jakarta_Sans:Bold',sans-serif] font-bold leading-[20.709px] relative shrink-0 text-white text-[16.567px] text-center uppercase">RESERVE MY FREE WORKSHOP SEAT</p>
     </div>
   );
 }
@@ -653,11 +654,13 @@ function TextContainer13() {
 
 function Image() {
   return (
-    <div className="content-stretch flex flex-col gap-[55.915px] items-center justify-center px-4 sm:px-8 md:px-16 lg:px-[270px] py-[80px] relative shrink-0 w-full" data-name="Image">
+    <div className="relative shrink-0 w-full" data-name="Image">
       <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgImage} />
-      <TextContainer5 />
-      <ContentContainer2 />
-      <TextContainer13 />
+      <div className="relative z-10 max-w-[1728px] mx-auto content-stretch flex flex-col gap-[55.915px] items-center justify-center px-4 sm:px-8 md:px-16 lg:px-[270px] py-[80px] w-full">
+        <TextContainer5 />
+        <ContentContainer2 />
+        <TextContainer13 />
+      </div>
     </div>
   );
 }
@@ -665,14 +668,9 @@ function Image() {
 function AuthorInfo1() {
   return (
     <div className="content-stretch flex flex-col items-start not-italic relative shrink-0 w-full" data-name="Author Info">
-      <p className="bg-clip-text font-['Manrope:Bold',sans-serif] font-bold leading-[0] relative shrink-0 text-[0px] text-[14.97px] text-white w-full" style={{ backgroundImage: "linear-gradient(90deg, rgb(60, 128, 255) 0%, rgb(117, 34, 189) 100%), linear-gradient(-5.1157deg, rgb(249, 5, 242) 16.982%, rgb(0, 0, 0) 86.805%), linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%)", WebkitTextFillColor: "transparent" }}>
-        <span className="bg-clip-text font-['Inter:Bold',sans-serif] leading-[20.316px]" style={{ backgroundImage: "linear-gradient(90deg, rgb(60, 128, 255) 0%, rgb(117, 34, 189) 100%), linear-gradient(-5.1157deg, rgb(249, 5, 242) 16.982%, rgb(0, 0, 0) 86.805%), linear-gradient(90deg, rgb(13, 19, 83) 0%, rgb(13, 19, 83) 100%)", WebkitTextFillColor: "transparent" }}>
-          RICHARD
-        </span>
-        <span className="bg-clip-text font-['Inter:Light',sans-serif] font-light leading-[20.316px]" style={{ backgroundImage: "linear-gradient(90deg, rgb(60, 128, 255) 0%, rgb(117, 34, 189) 100%), linear-gradient(-5.1157deg, rgb(249, 5, 242) 16.982%, rgb(0, 0, 0) 86.805%), linear-gradient(90deg, rgb(13, 19, 83) 0%, rgb(13, 19, 83) 100%)", WebkitTextFillColor: "transparent" }}>
-          BRANSON
-        </span>
-      </p>
+      <div className="w-[138.414px] h-[11.2273px] relative shrink-0">
+        <AuthorNameBranson />
+      </div>
       <p className="font-['Inter:Regular',sans-serif] font-normal leading-[16.039px] relative shrink-0 text-[10.693px] w-full">Businessman, Investor and Founder of Virgin Group</p>
     </div>
   );
@@ -699,7 +697,7 @@ function ContentSection3() {
   return (
     <div className="bg-[#f5f5fc] relative shrink-0 w-full" data-name="Content Section">
       <div className="flex flex-row items-center justify-center size-full">
-        <div className="content-center flex flex-wrap gap-[11.762px] items-center justify-center px-4 sm:px-8 md:px-16 lg:px-[180px] py-[17.258px] relative w-full">
+        <div className="max-w-[1728px] mx-auto content-center flex flex-wrap gap-[11.762px] items-center justify-center px-4 sm:px-8 md:px-16 lg:px-[180px] py-[17.258px] relative w-full">
           <div className="h-[274.398px] relative shrink-0 w-[239.538px]" data-name="Group 1171275805-1 1">
             <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgGroup117127580511} />
           </div>
@@ -837,7 +835,7 @@ function ContentSection4() {
   return (
     <div className="bg-white relative shrink-0 w-full" data-name="Content Section">
       <div className="flex flex-col items-center size-full">
-        <div className="content-stretch flex flex-col gap-[46.251px] items-center px-4 sm:px-8 md:px-16 lg:px-[270px] py-[75.934px] relative w-full">
+        <div className="max-w-[1728px] mx-auto content-stretch flex flex-col gap-[46.251px] items-center px-4 sm:px-8 md:px-16 lg:px-[270px] py-[75.934px] relative w-full">
           <Container7 />
           <Container10 />
         </div>
@@ -1304,7 +1302,7 @@ function ContentSection5() {
   return (
     <div className="bg-[#f5f5fc] relative shrink-0 w-full" data-name="Content Section">
       <div className="flex flex-col items-center size-full">
-        <div className="content-stretch flex flex-col gap-[44.18px] items-center px-4 sm:px-8 md:px-16 lg:px-[120px] xl:px-[270px] py-[69px] relative w-full">
+        <div className="max-w-[1728px] mx-auto content-stretch flex flex-col gap-[44.18px] items-center px-4 sm:px-8 md:px-16 lg:px-[120px] xl:px-[270px] py-[69px] relative w-full">
           <Container16 />
           <TextContainer15 />
         </div>
@@ -1520,7 +1518,7 @@ function ButtonContainer4() {
       data-name="Button Container" 
       style={{ backgroundImage: "linear-gradient(162.437deg, rgb(170, 69, 232) 26.236%, rgb(36, 69, 255) 86.882%), linear-gradient(90deg, rgb(255, 0, 246) 0%, rgb(255, 0, 246) 100%)" }}
     >
-      <p className="font-['Plus_Jakarta_Sans:Bold',sans-serif] font-bold leading-[20.709px] relative shrink-0 text-[16.567px] text-center text-white uppercase">REGISTER FOR THE NEXT AVAILABLE SESSION</p>
+      <p className="font-['Plus_Jakarta_Sans:Bold',sans-serif] font-bold leading-[20.709px] relative shrink-0 text-[16.567px] text-center text-white uppercase">RESERVE MY FREE WORKSHOP SEAT</p>
     </div>
   );
 }
@@ -1538,7 +1536,7 @@ function ContentSection6() {
   return (
     <div className="bg-white relative shrink-0 w-full" data-name="Content Section">
       <div className="flex flex-col items-center justify-center size-full">
-        <div className="content-stretch flex flex-col gap-[54px] items-center justify-center px-4 sm:px-8 md:px-16 lg:px-[270px] py-[88px] relative w-full">
+        <div className="max-w-[1728px] mx-auto content-stretch flex flex-col gap-[54px] items-center justify-center px-4 sm:px-8 md:px-16 lg:px-[270px] py-[88px] relative w-full">
           <LeadershipTitle />
           <TextContainer17 />
           <TextContainer23 />
@@ -2041,8 +2039,14 @@ function TextContainer34() {
 
 function TextContainer33() {
   return (
-    <div className="flex flex-col gap-[26.232px] items-start relative shrink-0 w-full md:w-[404px] px-5 sm:px-7 md:px-8 pt-6 md:pt-0 pb-8 md:pb-12" data-name="Text Container">
-      <p className="font-['Plus_Jakarta_Sans:Bold',sans-serif] font-bold leading-[1.2] relative shrink-0 text-[20px] sm:text-[24px] md:text-[28.993px] text-white tracking-[-0.8px] md:tracking-[-1.1597px] w-full">{`Here's What Happens When You Register:`}</p>
+    // Text side: grows to fill all remaining space, never shrinks below its content
+    <div
+      className="flex-1 min-w-0 flex flex-col gap-[26.232px] items-start px-6 sm:px-8 md:px-10 lg:px-12 pt-8 md:pt-10 pb-8 md:pb-12"
+      data-name="Text Container"
+    >
+      <p className="font-['Plus_Jakarta_Sans:Bold',sans-serif] font-bold leading-[1.2] shrink-0 text-[20px] sm:text-[24px] md:text-[28.993px] text-white tracking-[-0.8px] md:tracking-[-1.1597px] w-full">
+        {`Here's What Happens When You Register:`}
+      </p>
       <TextContainer34 />
     </div>
   );
@@ -2050,15 +2054,27 @@ function TextContainer33() {
 
 function TextContainer32() {
   return (
-    <div className="w-full flex flex-col md:flex-row items-end relative" data-name="Text Container">
+    // Horizontal row: text fills (flex-1) | min 64px gap | image fixed-width right side (shrink-0)
+    <div
+      className="relative z-10 w-full flex flex-col md:flex-row md:items-end md:gap-16"
+      data-name="Text Container"
+    >
+      {/* Left: text — fills all available space, text cannot be compressed */}
       <TextContainer33 />
-      <div className="hidden md:flex items-center justify-center relative shrink-0 self-end">
-        <div className="-scale-y-100 flex-none rotate-180">
-          <div className="h-[440.863px] relative w-[403.237px]" data-name="kane 2">
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-              <img alt="" className="absolute h-[117.39%] left-[-0.1%] max-w-none top-0 w-[100.21%]" src={imgKane2} />
-            </div>
-          </div>
+
+      {/* Right: Kane image — fixed size, never compresses the text, sits flush to the right */}
+      <div className="hidden md:block shrink-0 self-end">
+        {/* scaleX(-1) mirrors the figure so he faces into the text */}
+        <div
+          className="relative overflow-hidden"
+          style={{ width: "403.237px", height: "440.863px", transform: "scaleX(-1)" }}
+          data-name="kane 2"
+        >
+          <img
+            alt=""
+            className="absolute h-[117.39%] left-[-0.1%] max-w-none top-0 w-[100.21%]"
+            src={imgKane2}
+          />
         </div>
       </div>
     </div>
@@ -2067,8 +2083,18 @@ function TextContainer32() {
 
 function Image1() {
   return (
-    <div className="flex flex-col items-end justify-end overflow-clip pt-[53px] relative rounded-[11.045px] shrink-0 w-full" data-name="Image">
-      <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[11.045px] size-full" src={imgImage1} />
+    // Card: full-width within section container, background image bleeds to all card edges
+    <div
+      className="relative overflow-hidden rounded-[11.045px] w-full pt-[53px]"
+      data-name="Image"
+    >
+      {/* Background image — fills the full card */}
+      <img
+        alt=""
+        className="absolute inset-0 max-w-none object-cover pointer-events-none size-full rounded-[11.045px]"
+        src={imgImage1}
+      />
+      {/* Content row — text left, Kane image right */}
       <TextContainer32 />
     </div>
   );
@@ -2105,7 +2131,7 @@ function ButtonContainer5() {
       data-name="Button Container" 
       style={{ backgroundImage: "linear-gradient(162.043deg, rgb(170, 69, 232) 26.236%, rgb(36, 69, 255) 86.882%), linear-gradient(90deg, rgb(255, 0, 246) 0%, rgb(255, 0, 246) 100%)" }}
     >
-      <p className="font-['Plus_Jakarta_Sans:Bold',sans-serif] font-bold leading-[20.709px] relative shrink-0 text-[16.567px] text-center text-white uppercase">REGISTER FOR THE NEXT AVAILABLE SESSION</p>
+      <p className="font-['Plus_Jakarta_Sans:Bold',sans-serif] font-bold leading-[20.709px] relative shrink-0 text-[16.567px] text-center text-white uppercase">RESERVE MY FREE WORKSHOP SEAT</p>
     </div>
   );
 }
@@ -2122,10 +2148,12 @@ function TextContainer40() {
 
 function ContentSection7() {
   return (
-    <div className="bg-[#f9fafb] content-stretch flex flex-col gap-[46.251px] items-center justify-center px-4 sm:px-8 md:px-16 lg:px-[270px] py-[98px] relative shrink-0 w-full" data-name="Content Section">
-      <TextContainer25 />
-      <Image1 />
-      <TextContainer40 />
+    <div className="bg-[#f9fafb] relative shrink-0 w-full" data-name="Content Section">
+      <div className="max-w-[1728px] mx-auto content-stretch flex flex-col gap-[46.251px] items-center justify-center px-4 sm:px-8 md:px-16 lg:px-[270px] py-[98px] relative w-full">
+        <TextContainer25 />
+        <Image1 />
+        <TextContainer40 />
+      </div>
     </div>
   );
 }
@@ -2234,13 +2262,15 @@ function FaqContainer() {
 
 function Faq() {
   return (
-    <div className="content-stretch flex flex-col gap-[49.702px] items-center justify-center px-4 sm:px-8 md:px-16 lg:px-[270px] py-[66px] relative shrink-0 w-full" data-name="FAQ">
+    <div className="relative shrink-0 w-full" data-name="FAQ">
       <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgFaq} />
-      <p className="font-['Plus_Jakarta_Sans:Bold',sans-serif] font-bold leading-[0] relative shrink-0 text-[0px] text-center text-white tracking-[-1.5463px] w-full whitespace-pre-wrap">
-        <span className="leading-[normal] text-[38.657px]">{`Frequently Asked `}</span>
-        <span className="font-['Playfair_Display:SemiBold_Italic',sans-serif] font-semibold italic leading-[normal] text-[42.799px]">Questions</span>
-      </p>
-      <FaqContainer />
+      <div className="relative z-10 max-w-[1728px] mx-auto content-stretch flex flex-col gap-[49.702px] items-center justify-center px-4 sm:px-8 md:px-16 lg:px-[270px] py-[66px] w-full">
+        <p className="font-['Plus_Jakarta_Sans:Bold',sans-serif] font-bold leading-[0] relative shrink-0 text-[0px] text-center text-white tracking-[-1.5463px] w-full whitespace-pre-wrap">
+          <span className="leading-[normal] text-[38.657px]">{`Frequently Asked `}</span>
+          <span className="font-['Playfair_Display:SemiBold_Italic',sans-serif] font-semibold italic leading-[normal] text-[42.799px]">Questions</span>
+        </p>
+        <FaqContainer />
+      </div>
     </div>
   );
 }
@@ -2270,10 +2300,11 @@ function ButtonContainer6() {
   return (
     <div 
       onClick={openForm}
-      className="bg-white content-stretch flex h-[53.154px] items-center justify-center px-[13.806px] py-[11.045px] relative rounded-[27.612px] shrink-0 w-full max-w-[441.799px] cursor-pointer hover:opacity-90 transition-opacity" 
-      data-name="Button Container"
+      className="content-stretch flex h-[53.154px] items-center justify-center px-[13.806px] py-[11.045px] relative rounded-[27.612px] shrink-0 w-full max-w-[441.799px] cursor-pointer hover:opacity-90 transition-opacity" 
+      data-name="Button Container" 
+      style={{ backgroundImage: "linear-gradient(162.437deg, rgb(170, 69, 232) 26.236%, rgb(36, 69, 255) 86.882%), linear-gradient(90deg, rgb(255, 0, 246) 0%, rgb(255, 0, 246) 100%)" }}
     >
-      <p className="font-['Plus_Jakarta_Sans:Bold',sans-serif] font-bold leading-[20.709px] relative shrink-0 text-[#0d1353] text-[16.567px] text-center uppercase">REGISTER FOR THE NEXT AVAILABLE SESSION</p>
+      <p className="font-['Plus_Jakarta_Sans:Bold',sans-serif] font-bold leading-[20.709px] relative shrink-0 text-white text-[16.567px] text-center uppercase">RESERVE MY FREE WORKSHOP SEAT</p>
     </div>
   );
 }
@@ -2283,7 +2314,7 @@ function Image2() {
     <div className="relative shrink-0 w-full" data-name="Image">
       <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgImage2} />
       <div className="flex flex-col items-center justify-center size-full">
-        <div className="content-stretch flex flex-col gap-[33.135px] items-center justify-center px-4 sm:px-8 md:px-16 lg:px-[270px] py-[59px] relative w-full">
+        <div className="max-w-[1728px] mx-auto content-stretch flex flex-col gap-[33.135px] items-center justify-center px-4 sm:px-8 md:px-16 lg:px-[270px] py-[59px] relative w-full">
           <TextContainer43 />
           <ButtonContainer6 />
         </div>
@@ -2295,10 +2326,12 @@ function Image2() {
 export default function LandingPage() {
   return (
     <div className="content-stretch flex flex-col items-center relative size-full" data-name="LANDING PAGE">
-      <NavBar />
       <Hero />
       <FeaturedOn />
+      <AwardsSection />
       <Frame1707482421 />
+      <StatsStrip />
+      <TrustpilotSection />
       <RecognitionSection />
       <Frame3 />
       <ContentSection1 />
@@ -2309,8 +2342,6 @@ export default function LandingPage() {
       <ContentSection5 />
       <ContentSection />
       <ContentSection7 />
-      <StatsStrip />
-      <TrustpilotSection />
       <Faq />
       <Image2 />
     </div>

@@ -103,9 +103,13 @@ function Cred() {
 
 export default function FeaturedOn() {
   return (
-    <div className="bg-[#0d1353] w-full flex flex-col items-center justify-center py-6 md:py-8 px-4 sm:px-8 md:px-[200px]" data-name="featured on">
-      <Container />
-      <Cred />
+    // Outer: full-width dark background
+    <div className="bg-[#0d1353] w-full" data-name="featured on">
+      {/* Inner: content capped at MacBook Pro 16-inch max-width */}
+      <div className="max-w-[1728px] mx-auto flex flex-col items-center justify-center py-6 md:py-8 px-4 sm:px-8 md:px-[200px] w-full">
+        <Container />
+        <Cred />
+      </div>
     </div>
   );
 }

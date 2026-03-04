@@ -7,7 +7,7 @@ import review6 from "../assets/d43240f1f99bf954aa2ec279f1b87b3ec5108e26.png";
 import review7 from "../assets/34a3f1cb089feccfd0ce0f337f279ffc4a09084b.png";
 import review8 from "../assets/373339a18f0b2567b1a7f8df8e0841051929c2d1.png";
 import review9 from "../assets/59f8f50a97c271b39c453168adc07e6a69d51b5a.png";
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 const TRUSTPILOT_GREEN = "#00B67A";
 
@@ -85,9 +85,10 @@ interface MarqueeRowProps {
   images: string[];
   direction: "left" | "right";
   duration?: number;
+  onImageClick: (src: string) => void;
 }
 
-function MarqueeRow({ images, direction, duration = 40 }: MarqueeRowProps) {
+function MarqueeRow({ images, direction, duration = 40, onImageClick }: MarqueeRowProps) {
   const [paused, setPaused] = useState(false);
   // Duplicate images for seamless loop
   const items = [...images, ...images, ...images];
@@ -118,12 +119,12 @@ function MarqueeRow({ images, direction, duration = 40 }: MarqueeRowProps) {
         }}
       >
         {items.map((img, i) => (
-          <div
+          <button
             key={i}
-            className="shrink-0 w-[300px] sm:w-[340px] rounded-xl overflow-hidden bg-white"
-            style={{
-              boxShadow: "0 4px 24px rgba(0,0,0,0.22)",
-            }}
+            onClick={() => onImageClick(img)}
+            className="shrink-0 w-[300px] sm:w-[340px] rounded-xl overflow-hidden bg-white cursor-zoom-in transition-transform duration-200 hover:scale-[1.03] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
+            style={{ boxShadow: "0 4px 24px rgba(0,0,0,0.22)" }}
+            aria-label={`Enlarge review ${(i % images.length) + 1}`}
           >
             <img
               src={img}
@@ -131,14 +132,73 @@ function MarqueeRow({ images, direction, duration = 40 }: MarqueeRowProps) {
               className="w-full h-auto block"
               draggable={false}
             />
-          </div>
+          </button>
         ))}
       </div>
     </div>
   );
 }
 
+// ── Lightbox ──────────────────────────────────────────────────────────────────
+function Lightbox({ src, onClose }: { src: string; onClose: () => void }) {
+  // Close on Escape
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [onClose]);
+
+  // Prevent body scroll while open
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => { document.body.style.overflow = ""; };
+  }, []);
+
+  return (
+    <div
+      className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-8"
+      style={{ background: "rgba(5,8,40,0.88)", backdropFilter: "blur(6px)" }}
+      onClick={onClose}
+      aria-modal="true"
+      role="dialog"
+    >
+      {/* Close button */}
+      <button
+        onClick={onClose}
+        className="absolute top-4 right-4 sm:top-6 sm:right-6 flex items-center justify-center size-9 rounded-full transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
+        style={{ background: "rgba(255,255,255,0.12)" }}
+        aria-label="Close"
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M18 6L6 18M6 6l12 12" />
+        </svg>
+      </button>
+
+      {/* Image — stop click propagation so clicking the image itself doesn't close */}
+      <img
+        src={src}
+        alt="Trustpilot review enlarged"
+        className="block rounded-2xl"
+        style={{
+          maxWidth: "min(780px, 94vw)",
+          maxHeight: "90vh",
+          width: "auto",
+          height: "auto",
+          objectFit: "contain",
+          boxShadow: "0 24px 80px rgba(0,0,0,0.55)",
+        }}
+        onClick={(e) => e.stopPropagation()}
+        draggable={false}
+      />
+    </div>
+  );
+}
+
 export default function TrustpilotSection() {
+  const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
+  const openLightbox = useCallback((src: string) => setLightboxSrc(src), []);
+  const closeLightbox = useCallback(() => setLightboxSrc(null), []);
+
   return (
     <section
       className="relative w-full overflow-hidden"
@@ -169,8 +229,8 @@ export default function TrustpilotSection() {
 
       <div className="relative z-10 flex flex-col gap-10 items-center py-16 md:py-20 w-full">
 
-        {/* Section header – centred, with horizontal padding */}
-        <div className="flex flex-col items-center gap-4 w-full text-center px-4 sm:px-8">
+        {/* Section header — centred within MacBook Pro 16-inch max-width */}
+        <div className="max-w-[1728px] mx-auto w-full flex flex-col items-center gap-4 text-center px-4 sm:px-8">
           <p
             className="font-['Plus_Jakarta_Sans:Medium',sans-serif] font-medium text-[11px] tracking-[3px] uppercase"
             style={{ color: "rgba(255,255,255,0.45)" }}
@@ -192,16 +252,16 @@ export default function TrustpilotSection() {
           </div>
         </div>
 
-        {/* ── Marquee rows ── */}
+        {/* Marquee rows — intentionally full-width for the edge-to-edge scroll effect */}
         <div className="flex flex-col gap-5 w-full">
           {/* Row 1 – scrolls left */}
-          <MarqueeRow images={ROW_1} direction="left" duration={45} />
+          <MarqueeRow images={ROW_1} direction="left" duration={45} onImageClick={openLightbox} />
           {/* Row 2 – scrolls right */}
-          <MarqueeRow images={ROW_2} direction="right" duration={50} />
+          <MarqueeRow images={ROW_2} direction="right" duration={50} onImageClick={openLightbox} />
         </div>
 
-        {/* CTA */}
-        <div className="flex items-center gap-2 group mt-2">
+        {/* CTA — centred within max-width */}
+        <div className="max-w-[1728px] mx-auto w-full flex items-center justify-center gap-2 group mt-2">
           <a
             href="https://www.trustpilot.com/review/industryrockstar.com"
             target="_blank"
@@ -221,6 +281,9 @@ export default function TrustpilotSection() {
         </div>
 
       </div>
+
+      {/* Lightbox — rendered outside marquee containers so overflow:hidden doesn't clip it */}
+      {lightboxSrc && <Lightbox src={lightboxSrc} onClose={closeLightbox} />}
     </section>
   );
 }

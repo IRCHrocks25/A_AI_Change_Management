@@ -130,7 +130,7 @@ function RegisterButton() {
   return (
     <div
       onClick={openForm}
-      className="flex h-[53.154px] items-center justify-center px-4 py-[11.045px] rounded-[27.612px] w-full max-w-[472.172px] cursor-pointer"
+      className="flex h-[53.154px] items-center justify-center px-4 py-[11.045px] rounded-[27.612px] w-full max-w-[472.172px] cursor-pointer hover:opacity-90 transition-opacity"
       data-name="ButtonContainer"
       style={{
         backgroundImage:
@@ -138,7 +138,7 @@ function RegisterButton() {
       }}
     >
       <p className="font-['Plus_Jakarta_Sans:Bold',sans-serif] font-bold leading-[20.709px] text-[13px] md:text-[16.567px] text-center text-white uppercase">
-        REGISTER FOR THE NEXT AVAILABLE SESSION
+        RESERVE MY FREE WORKSHOP SEAT
       </p>
     </div>
   );
@@ -158,11 +158,13 @@ function ClosingSection() {
 
 export default function ContentSection() {
   return (
+    // Outer: full-width white background
     <div
       className="bg-white w-full"
       data-name="Content Section"
     >
-      <div className="flex flex-col gap-8 md:gap-[54px] items-center justify-center px-4 sm:px-8 md:px-16 lg:px-[200px] py-10 md:py-[88px] w-full">
+      {/* Inner: content capped at MacBook Pro 16-inch max-width */}
+      <div className="max-w-[1728px] mx-auto flex flex-col gap-8 md:gap-[54px] items-center justify-center px-4 sm:px-8 md:px-16 lg:px-[200px] py-10 md:py-[88px] w-full">
         <LeadershipTitle />
         <HostsContent />
         <ClosingSection />

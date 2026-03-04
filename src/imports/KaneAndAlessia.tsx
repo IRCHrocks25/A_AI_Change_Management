@@ -25,10 +25,6 @@ const stats = [
 ];
 
 function TextBlock() {
-  const handleVisit = () => {
-    window.open('https://kaneandalessia.com', '_blank', 'noopener,noreferrer');
-  };
-  
   return (
     <div className="flex flex-col gap-[20px] md:gap-[27px] items-center md:items-start w-full md:w-[412px]">
       {/* Name */}
@@ -51,7 +47,7 @@ function TextBlock() {
 
       {/* CTA button */}
       <button
-        onClick={handleVisit}
+        onClick={() => window.open('https://kaneandalessia.com', '_blank', 'noopener,noreferrer')}
         className="flex items-center justify-center w-full sm:w-auto px-[28px] md:px-[43px] py-[11px] rounded-[27.612px] cursor-pointer border-0 hover:opacity-90 transition-opacity"
         style={{ backgroundImage: gradientBtn }}
       >

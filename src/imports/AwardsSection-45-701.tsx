@@ -17,32 +17,33 @@ const logos = [
 
 export default function AwardsSection() {
   return (
-    <div
-      className="bg-[#fafafa] w-full flex flex-col gap-3 md:gap-[17.948px] items-center justify-center py-6 md:py-8 px-4 sm:px-8 md:px-[143px]"
-      data-name="Awards Section"
-    >
-      {/* Label */}
-      <p className="font-['Plus_Jakarta_Sans:Medium',sans-serif] font-medium leading-normal text-[#404040] text-[10px] sm:text-[11px] md:text-[12.426px] text-center tracking-[2.9821px] uppercase">
-        INDUSTRY ROCKSTAR TEAM AWARDS
-      </p>
+    // Outer: full-width light background
+    <div className="bg-[#fafafa] w-full" data-name="Awards Section">
+      {/* Inner: content capped at MacBook Pro 16-inch max-width */}
+      <div className="max-w-[1728px] mx-auto flex flex-col gap-3 md:gap-[17.948px] items-center justify-center py-6 md:py-8 px-4 sm:px-8 md:px-[143px] w-full">
+        {/* Label */}
+        <p className="font-['Plus_Jakarta_Sans:Medium',sans-serif] font-medium leading-normal text-[#404040] text-[10px] sm:text-[11px] md:text-[12.426px] text-center tracking-[2.9821px] uppercase">
+          INDUSTRY ROCKSTAR TEAM AWARDS
+        </p>
 
-      {/* Logos — wrap to 2 rows on xs/sm, single row on md+ */}
-      <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-4 md:flex-nowrap md:gap-x-[17.258px] md:gap-y-0 w-full">
-        {logos.map((logo) => (
+        {/* Logos — wrap to 2 rows on xs/sm, single row on md+ */}
+        <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-4 md:flex-nowrap md:gap-x-[17.258px] md:gap-y-0 w-full">
+          {logos.map((logo) => (
+            <img
+              key={logo.name}
+              alt={logo.name}
+              src={logo.src}
+              className="h-[36px] sm:h-[44px] md:h-[55.769px] w-auto object-contain shrink-0"
+            />
+          ))}
+
+          {/* Inc. 5000 medallion (square) */}
           <img
-            key={logo.name}
-            alt={logo.name}
-            src={logo.src}
-            className="h-[36px] sm:h-[44px] md:h-[55.769px] w-auto object-contain shrink-0"
+            alt="Inc. 5000"
+            src={imgInc5000ColorMedallionLogo11}
+            className="h-[36px] w-[36px] sm:h-[44px] sm:w-[44px] md:h-[55.033px] md:w-[55.033px] object-contain shrink-0"
           />
-        ))}
-
-        {/* Inc. 5000 medallion (square) */}
-        <img
-          alt="Inc. 5000"
-          src={imgInc5000ColorMedallionLogo11}
-          className="h-[36px] w-[36px] sm:h-[44px] sm:w-[44px] md:h-[55.033px] md:w-[55.033px] object-contain shrink-0"
-        />
+        </div>
       </div>
     </div>
   );

@@ -1,5 +1,4 @@
 import svgPaths from "./svg-8ht6v7hrau";
-import { useVideoModalContext } from "../context/RegistrationFormContext";
 
 function NavItem() {
   return (
@@ -68,12 +67,9 @@ function NavItem() {
 }
 
 function ButtonContainer() {
-  const { openVideo } = useVideoModalContext();
-  
   return (
     <div
-      onClick={openVideo}
-      className="flex items-center justify-center px-4 sm:px-[11.195px] py-[8px] sm:py-[8.956px] rounded-[22.389px] shrink-0 h-[36px] sm:h-[40px] md:h-[43.1px] w-auto sm:w-[150px] md:w-[181px] cursor-pointer hover:opacity-90 transition-opacity"
+      className="flex items-center justify-center px-4 sm:px-[11.195px] py-[8px] sm:py-[8.956px] rounded-[22.389px] shrink-0 h-[36px] sm:h-[40px] md:h-[43.1px] w-auto sm:w-[150px] md:w-[181px] cursor-pointer"
       data-name="Button Container"
       style={{ backgroundImage: "linear-gradient(146.25deg, rgb(170, 69, 232) 26.236%, rgb(36, 69, 255) 86.882%), linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%)" }}
     >
