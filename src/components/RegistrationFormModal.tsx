@@ -59,6 +59,16 @@ export function RegistrationFormModal({ isOpen, onClose }: RegistrationFormModal
           </svg>
         </button>
 
+        {/* Event Information Header */}
+        <div className="px-6 pt-6 pb-4 border-b border-gray-200 text-center">
+          <h2 className="font-['Plus_Jakarta_Sans:Bold',sans-serif] font-bold text-[#0d1353] text-xl md:text-2xl mb-2">
+            AI Change Management Workshop
+          </h2>
+          <p className="font-['Plus_Jakarta_Sans:Medium',sans-serif] font-medium text-[#0d1353] text-base md:text-lg">
+            Saturday 14th March 2026 9:00 AM PST
+          </p>
+        </div>
+
         {/* Form iframe */}
         <div className="w-full" style={{ height: '593px' }}>
           <iframe

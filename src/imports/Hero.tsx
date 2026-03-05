@@ -98,7 +98,7 @@ function TextContainer() {
 function VideoPlaceholder() {
   return (
     <div
-      className="w-full max-w-[576px] mx-auto h-[176px] sm:h-[256px] md:h-[320px] relative rounded-[12px] overflow-hidden shrink-0"
+      className="w-full max-w-[576px] md:max-w-[768px] lg:max-w-[960px] mx-auto h-[176px] sm:h-[256px] md:h-[432px] lg:h-[540px] relative rounded-[12px] overflow-hidden shrink-0"
       style={{
         boxShadow: "0 8px 40px rgba(107,36,160,0.25)",
         border: "1.5px solid rgba(170,69,232,0.35)",
